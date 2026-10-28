@@ -633,6 +633,7 @@ class Checker:
             checkin_result = api.checkin(cookie)
             result.status = checkin_result["status"]
             result.code = checkin_result.get("code", CheckinStatus.FAILURE)
+            result.points = checkin_result["points"]
 
             self._log(cookie_idx, domain, LogEmoji.POINTS, "查询总积分")
             points_str, points_num = api.get_points(cookie)
